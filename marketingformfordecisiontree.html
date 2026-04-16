@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://go.microsoft.com/fwlink/?linkid=2224838" data-comment="Form extensibility documentation" rel="author">
+    <title>Marketing Form</title>
+    <meta name="referrer" content="never">
+    <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
+    <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
+    <style>
+
+/* ===== BOT LAUNCHER + IFRAME ===== */
+.botLauncher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #2266e3;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 28px;
+    line-height: 56px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 9999;
+    display: block;
+    font-family: "Segoe UI", Arial, sans-serif;
+    cursor: pointer;
+    border: none;
+}
+
+.botLauncher:hover,
+.botLauncher:focus,
+.botLauncher:visited {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.botIframe {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 420px;
+    height: 700px;
+    border: none;
+    z-index: 9998;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    display: none;
+}
+
+/* ===== ESA START-UP FORM STYLES ===== */
+        .editor-control-layout html { box-sizing: border-box; background-color: #fff; }
+        .editor-control-layout *, .editor-control-layout *:before, .editor-control-layout *:after { box-sizing: inherit; }
+        .marketingForm h1 { color: #000; margin: 0px; padding: 0px; width: 100%; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.25; font-size: 28px; }
+        .marketingForm h2 { color: #333; margin: 0px; padding: 0px; width: 100%; line-height: 1.25; font-family: "Segoe UI", Arial, sans-serif; font-size: 22px; }
+        .marketingForm h3 { color: #000; margin: 0px; padding: 0px; width: 100%; line-height: 1.25; font-family: "Segoe UI", Arial, sans-serif; font-size: 18px; }
+        .marketingForm p { margin: 0px; padding: 0px; line-height: 1.25; font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; }
+        .marketingForm a, div[data-editorblocktype="Captcha"] td:nth-of-type(2) a { text-decoration: none; font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; }
+        .marketingForm .primaryButtonWrapper, .submitButtonWrapper { text-align: center; margin: 10px 0px; }
+        .marketingForm .primaryButton, .submitButton { font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; font-size: 16px; line-height: 22px; background-color: #2266e3; border: none; border-radius: 4px; color: #ffffff; padding: 10px 20px; cursor: pointer; }
+        .marketingForm .secondaryButton { font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; font-size: 16px; line-height: 22px; background-color: #ffffff; border: 1px solid #0082dd; border-radius: 4px; color: #2266e3; padding: 10px 20px; margin: 0px; cursor: pointer; }
+        .marketingForm .error { font-family: Arial, Verdana, sans-serif; font-weight: bold; font-size: 8px; margin: 0px; padding: 0px; color: #a80000; }
+        .zero-state-container span { font-family: "Segoe UI", Arial, sans-serif; font-weight: 600; font-size: 20px; line-height: 26px; color: #242424; }
+        form.marketingForm { color: #000; font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; }
+        [data-layout="true"] { margin: 0 auto; max-width: 600px; background-color: rgba(255, 255, 255, 0); }
+        div[data-editorblocktype="SubmitButton"] { padding: 20px 12%; }
+        div[data-editorblocktype="Captcha"] { padding: 20px 12%; }
+        div[data-editorblocktype="Captcha"] table, div[data-editorblocktype="Captcha"] div>table>tbody>tr>td:nth-of-type(2) { width: 100% !important; }
+        div[data-editorblocktype="Captcha"] div>div>table>tbody>tr:first-of-type>td:last-of-type { padding-bottom: 12px !important; }
+        div[data-editorblocktype="Captcha"] tr[id="wlspispHIPErrorContainer"] { margin-top: 20px; }
+        div[data-editorblocktype="Captcha"] tr[id="wlspispHIPErrorContainer"] td:nth-of-type(2) { width: auto !important; }
+        div[data-editorblocktype="Captcha"] tr[id="wlspispHIPErrorContainer"] img { display: flex; }
+        div[data-editorblocktype="Captcha"] td:nth-of-type(2)>div>div { margin-top: 4px; }
+        div[data-editorblocktype="Captcha"] td:nth-of-type(2)>div>div * { font-weight: 400; }
+        div[data-editorblocktype="Captcha"] td:nth-of-type(2)>div>div b { color: #797775; }
+        div[data-editorblocktype="Captcha"] tr:nth-of-type(2)>td { height: 0px !important; }
+        div[data-editorblocktype="Captcha"] td input { margin-top: 20px !important; padding: 6px 8px !important; width: 100% !important; }
+        div[data-editorblocktype="Captcha"] div[id^="wlspaudioBtnHolder"] { display: flex; align-items: center; justify-content: center; }
+        div[data-editorblocktype="About"], div[data-editorblocktype="Sessions"], div[data-editorblocktype="Speakers"] { padding: 32px 24px; }
+        .textFormFieldBlock, .dateTimeFormFieldBlock, .twoOptionFormFieldBlock, .optionSetFormFieldBlock, .multiOptionSetFormFieldBlock, .lookupFormFieldBlock { padding: 20px 30px; display: flex; flex-direction: column; gap: 16px; }
+        table.multi .textFormFieldBlock, table.multi .dateTimeFormFieldBlock, table.multi .twoOptionFormFieldBlock, table.multi .optionSetFormFieldBlock, table.multi .multiOptionSetFormFieldBlock, table.multi .lookupFormFieldBlock { padding: 12px 20px; }
+        .consentBlock { padding: 4px 30px; }
+        .textFormFieldBlock label, .dateTimeFormFieldBlock label, .lookupFormFieldBlock label, .twoOptionFormFieldBlock label.block-label, .optionSetFormFieldBlock label.block-label, .multiOptionSetFormFieldBlock label.block-label, div[data-editorblocktype="Captcha"] label[id^="wlspispHipInstructionContainer"], .textFormFieldBlock label *, .dateTimeFormFieldBlock label *, .lookupFormFieldBlock label *, .twoOptionFormFieldBlock label.block-label *, .optionSetFormFieldBlock label.block-label *, .multiOptionSetFormFieldBlock label.block-label *, .eventSession label *, .consentBlock label p { font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; font-weight: 600; color: #323130; }
+        .textFormFieldBlock label, .dateTimeFormFieldBlock label, .lookupFormFieldBlock label, .twoOptionFormFieldBlock label.block-label, .optionSetFormFieldBlock label.block-label, .multiOptionSetFormFieldBlock label.block-label, div[data-editorblocktype="Captcha"] label[id^="wlspispHipInstructionContainer"] { display: inline-block; margin-top: 4px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; padding: 0px; flex: 1; width: 100%; }
+        .textFormFieldBlock label>*, .dateTimeFormFieldBlock label>*, .lookupFormFieldBlock label>*, .twoOptionFormFieldBlock label.block-label>*, .optionSetFormFieldBlock label.block-label>*, .multiOptionSetFormFieldBlock label.block-label>*, .eventSession label>*, .consentBlock label>* { display: inline-block; }
+        .textFormFieldBlock label::after, .twooption_checkbox label::after, .dateTimeFormFieldBlock label::after, .lookupFormFieldBlock label::after, .twoOptionFormFieldBlock label.block-label::after, .twoOptionFormFieldBlock div.twooption_checkbox label::after, .optionSetFormFieldBlock label.block-label::after, .multiOptionSetFormFieldBlock label.block-label::after, .consentBlock label p:first-of-type::after, .eventSession label::after, div[data-editorblocktype="Captcha"] label[id^="wlspispHipInstructionContainer"]::after { width: 22px; display: inline-block; line-height: 22px; text-align: center; color: #c33400; content: "*"; visibility: hidden; }
+        div[data-required].textFormFieldBlock label::after, div[data-required].dateTimeFormFieldBlock label::after, div[data-required].lookupFormFieldBlock label::after, div[data-required] div.twooption_checkbox label::after, div[data-required] label.block-label::after, div[data-required="true"].consentBlock label p:first-of-type::after, div[data-editorblocktype="Captcha"] label[id^="wlspispHipInstructionContainer"]::after { visibility: visible; }
+        .optionSetFormFieldBlock select, .textFormFieldBlock input, .dateTimeFormFieldBlock input, .lookupFormFieldBlock input, .marketingForm textarea, div[data-editorblocktype="Captcha"] input { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; padding: 6px 8px; background-color: #faf9f8; border: 1px solid #e1dfdd; border-radius: 2px; display: block; width: 100%; height: 100%; box-sizing: border-box; flex: 2 1 20%; }
+        .textFormFieldBlock textArea { resize: vertical; height: 120px; }
+        .lookupFormFieldBlock input { background-image: url(data\003a image/svg+xml\003b base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDQ4IDIwNDgiPjxwYXRoIGQ9Ik0xMzQ0IDBxOTcgMCAxODcgMjV0MTY4IDcxIDE0MiAxMTAgMTExIDE0MyA3MSAxNjggMjUgMTg3cTAgOTctMjUgMTg3dC03MSAxNjgtMTEwIDE0Mi0xNDMgMTExLTE2OCA3MS0xODcgMjVxLTEyNSAwLTIzOS00MnQtMjExLTEyMWwtNzg1IDc4NHEtMTkgMTktNDUgMTl0LTQ1LTE5LTE5LTQ1cTAtMjYgMTktNDVsNzg0LTc4NXEtNzktOTYtMTIxLTIxMHQtNDItMjQwcTAtOTcgMjUtMTg3dDcxLTE2OCAxMTAtMTQyVDk4OSA5NnQxNjgtNzEgMTg3LTI1em0wIDEyODBxMTE5IDAgMjI0LTQ1dDE4My0xMjQgMTIzLTE4MyA0Ni0yMjRxMC0xMTktNDUtMjI0dC0xMjQtMTgzLTE4My0xMjMtMjI0LTQ2cS0xMTkgMC0yMjQgNDVUOTM3IDI5NyA4MTQgNDgwdC00NiAyMjRxMCAxMTkgNDUgMjI0dDEyNCAxODMgMTgzIDEyMyAyMjQgNDZ6Ii8+PC9zdmc+); background-repeat: no-repeat; background-position-x: 98%; background-position-y: center; background-size: 1em 1em; }
+        .optionSetFormFieldBlock select { background-image: url(data\003a image/svg+xml\003b base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDYuNzA4OThMMC4xNDY0ODQgMC44NTU0NjlMMC44NTU0NjkgMC4xNDY0ODRMNiA1LjI5MTAyTDExLjE0NDUgMC4xNDY0ODRMMTEuODUzNSAwLjg1NTQ2OUw2IDYuNzA4OThaIiBmaWxsPSIjNjA1RTVDIi8+Cjwvc3ZnPgo=); background-repeat: no-repeat; background-position-x: 98%; background-position-y: center; appearance: none; }
+        .optionSetFormFieldBlock select option { background-color: #faf9f8; }
+        .twoOptionFormFieldBlock div.radiobuttons, .twoOptionFormFieldBlock div.twooption_checkbox, .optionSetFormFieldBlock div.radiobuttons, .multiOptionSetFormFieldBlock fieldset { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; border: none; display: flex; flex-direction: column; align-items: flex-start; padding: 0px; gap: 8px; flex: 2; }
+        .twoOptionFormFieldBlock div.radiobuttons, .optionSetFormFieldBlock div.radiobuttons, .multiOptionSetFormFieldBlock fieldset { margin-top: 16px; }
+        .twoOptionFormFieldBlock div.radiobuttons>div, .twoOptionFormFieldBlock div.twooption_checkbox>div, .optionSetFormFieldBlock div.radiobuttons>div, .multiOptionSetFormFieldBlock fieldset>div, .consentBlock>div { display: flex; flex-direction: row; align-items: center; padding: 0px; gap: 8px; }
+        .twoOptionFormFieldBlock div.radiobuttons div label, .optionSetFormFieldBlock div.radiobuttons div label { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 20px; }
+        .twoOptionFormFieldBlock div.twooption_checkbox div label, .twoOptionFormFieldBlock div.twooption_checkbox div label div, .consentBlock div label p { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 20px; }
+        .multiOptionSetFormFieldBlock fieldset>div>label { font-weight: 400; font-size: 14px; line-height: 20px; }
+        .twoOptionFormFieldBlock div.radiobuttons, .optionSetFormFieldBlock div.radiobuttons { padding: 0px; margin: 0px; border-radius: 0px; }
+        .twoOptionFormFieldBlock div.twooption_checkbox>div, .consentBlock>div { width: 100%; border-radius: 0px; }
+        .twoOptionFormFieldBlock div.radiobuttons div, .optionSetFormFieldBlock div.radiobuttons div { width: 100%; }
+        .twoOptionFormFieldBlock div.twooption_checkbox div, .consentBlock div { padding: 0px; margin: 0px; }
+        .twoOptionFormFieldBlock div.radiobuttons div input, .twoOptionFormFieldBlock div.twooption_checkbox div input, .optionSetFormFieldBlock div.radiobuttons div input, .multiOptionSetFormFieldBlock fieldset>div>input[type="checkbox"], .eventSession>div>input[type="checkbox"], .consentBlock div input { margin: 0px; box-sizing: border-box; width: 20px; height: 20px; border: 1px solid #323130; border-radius: 2px; accent-color: #0078d4; flex-shrink: 0; }
+        .eventSessions { font-size: 16px; line-height: 1.2; border: none; }
+        .eventSession label b { display: inline; }
+        .eventSession>div>input[type="checkbox"] { float: right; }
+        .marketingForm [dir="rtl"], .marketingForm [dir="rtl"] * { text-align: right; }
+        .marketingForm s span { text-decoration: line-through; }
+        .marketingForm u span { text-decoration: underline; }
+        .dividerWrapper p span { line-height: 0px; }
+        .marketingForm ul, .marketingForm ol { margin-top: 15px; margin-bottom: 15px; line-height: 1.25; padding-inline-end: 0px !important; }
+        .marketingForm p img { max-width: 100%; }
+        .marketingForm u a { text-decoration: underline; }
+        .marketingForm .imageWrapper a img { text-decoration: none; border: 0px; }
+        .marketingForm th.columnContainer, .marketingForm th.inner { font-weight: normal; text-align: left; }
+        .marketingForm [dir="rtl"] th.columnContainer, .marketingForm [dir="rtl"] th.inner { font-weight: normal; text-align: right; }
+        @media only screen and (max-width: 768px) {
+            .marketingForm a span { line-height: inherit !important; }
+            .marketingForm .multi table { table-layout: fixed; height: auto !important; }
+            .marketingForm .multi td { width: auto !important; min-height: auto !important; }
+            .marketingForm .multi tbody, .marketingForm .multi tbody tr, .marketingForm .multi tbody tr td, .marketingForm .multi tbody tr th, .marketingForm .outer tbody, .marketingForm .outer tbody tr, .marketingForm .outer tbody tr td, .marketingForm .outer tbody tr th { display: block; box-sizing: border-box; height: auto !important; min-height: auto !important; }
+            .marketingForm .wrap-section .multi tbody, .marketingForm .wrap-section .multi tbody tr, .marketingForm .wrap-section .multi tbody tr td, .marketingForm .wrap-section .multi tbody tr th, .marketingForm .wrap-section .outer tbody, .marketingForm .wrap-section .outer tbody tr, .marketingForm .wrap-section .outer tbody tr td, .marketingForm .wrap-section .outer tbody tr th { width: 100% !important; }
+            .marketingForm .multi .inner { height: auto !important; min-height: auto !important; }
+            .marketingForm .tbContainer .inner { box-sizing: border-box; }
+            .marketingForm .outer { width: 100% !important; }
+            .marketingForm .tbContainer .columnContainer table { table-layout: fixed !important; }
+            .marketingForm .innerTable { min-height: auto !important; }
+            .marketingForm .no-wrap-section .outer { display: table !important; }
+            .marketingForm .no-wrap-section .multi table { height: 100% !important; }
+            .marketingForm .no-wrap-section .multi tbody, .marketingForm .no-wrap-section .outer tbody { display: table-row-group !important; width: 100% !important; }
+            .marketingForm .no-wrap-section .multi tbody tr, .marketingForm .no-wrap-section .outer tbody tr { display: table-row !important; width: 100% !important; }
+            .marketingForm .no-wrap-section .multi tbody tr td, .marketingForm .no-wrap-section .multi tbody tr th, .marketingForm .no-wrap-section .outer tbody tr td, .marketingForm .no-wrap-section .outer tbody tr th { display: table-cell !important; }
+            .marketingForm .no-wrap-section.columns-equal-class .outer tbody tr td, .marketingForm .no-wrap-section.columns-equal-class .outer tbody tr th { height: 0px !important; }
+            .marketingForm .no-wrap-section .outer tbody tr td.inner, .marketingForm .no-wrap-section .outer tbody tr th.inner { width: 100% !important; height: auto !important; }
+            .marketingForm a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+            .botIframe { width: calc(100vw - 40px); height: 60vh; }
+        }
+        .notification-container { margin-left: 10px; margin-right: 10px; margin-bottom: 10px; margin-top: 10px; }
+        .notification-message { display: flex; justify-content: center; align-items: center; min-height: 38px; border: 1.44737px solid#CCCCCC; border-radius: 10px; margin-bottom: 10px; margin-top: 10px; }
+        .notification-message-hide { display: none; }
+        .phoneFormFieldBlock { padding: 20px 30px; display: flex; flex-direction: column; gap: 16px; }
+        table.multi .phoneFormFieldBlock { padding: 12px 20px; }
+        .phoneFormFieldBlock label, .phoneFormFieldBlock label * { font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; font-weight: 600; color: #323130; }
+        .phoneFormFieldBlock label { display: inline-block; margin-top: 4px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; padding: 0px; flex: 1; width: 100%; }
+        .phoneFormFieldBlock label>* { display: inline-block; }
+        .phoneFormFieldBlock label::after { width: 22px; display: inline-block; line-height: 22px; text-align: center; color: #c33400; content: "*"; visibility: hidden; }
+        div[data-required].phoneFormFieldBlock label::after { visibility: visible; }
+        .phoneFormFieldBlock .phoneCountryCode { display: flex; flex: 2 1 20%; align-items: center; flex-direction: row; box-sizing: border-box; border: 1px solid #e1dfdd; border-radius: 2px; justify-content: center; background-color: transparent; overflow: hidden; width: 100%; height: 100%; }
+        .phoneFormFieldBlock .phoneCountryCodeLabel { overflow: hidden; margin: 0; cursor: pointer; padding-left: 5px; padding-right: 5px; opacity: 1; text-align: center; color: #605E5C; background-color: #F3F2F1; align-items: center; align-self: stretch; display: flex; }
+        .phoneFormFieldBlock span[hidden] { display: none; }
+        .phoneFormFieldBlock input { font-family: "Segoe UI", Arial, sans-serif; font-size: 14px; padding: 6px 8px; background-color: #faf9f8; display: block; width: 100%; height: 100%; box-sizing: border-box; font-size: 14px; flex: 2; border: none; }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form aria-label="Untitled Form" class="marketingForm">
+            <div data-layout="true" data-layout-version="v2" style="margin: auto; max-width: 600px;" data-layout-width="600px" class="">
+                <div data-section="true" class="emptyContainer columns-equal-class wrap-section" style="margin: 0px; border-radius: 0px;">
+                    <table class="outer" align="center" cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 600px; display: block;">
+                        <tbody>
+                            <tr>
+                                <th style="padding: 88px 10px 0px; border-color: rgb(0, 0, 0); border-width: 0px; border-style: none; border-radius: 0px;">
+                                    <table style="width: 100%; border-collapse: collapse" class="containerWrapper tbContainer" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <th data-container="true" class="columnContainer" data-container-width="100" style="vertical-align: top; min-width: 5px; width: 580px; height: 0px;" id="container13f3de4ff4f581669975165123">
+                                                    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; height: 100%;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="inner" style="min-width: 5px; padding: 0px; vertical-align: top; word-wrap: break-word; word-break: break-word; margin-bottom: 32px; font-weight: normal;">
+                                                                    <div data-editorblocktype="Image" style="margin: 0px; padding: 0px;">
+                                                                        <div align="Center" class="imageWrapper" data-image-file-id="03a97191-20dd-ee11-904b-0022489e49f4">
+                                                                            <img src="https://assets-eur.mkt.dynamics.com/846bcca8-9413-4d04-822b-7282239af232/digitalassets/images/03a97191-20dd-ee11-904b-0022489e49f4?ts=638454810480777765" style="max-height: 100%; max-width: 100%; box-sizing: border-box; display: block; border-radius: 0px;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div style="text-align: center"></div>
+                                                                </th>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-section="true" class="emptyContainer columns-equal-class wrap-section" style="margin: 0px; border-radius: 0px;">
+                    <table class="outer" align="center" cellpadding="0" cellspacing="0" style="width: 600px; display: block;">
+                        <tbody>
+                            <tr>
+                                <th style="padding: 0px 10px; border-color: rgb(0, 0, 0); border-width: 0px; border-style: none; border-radius: 0px;">
+                                    <table style="width: 100%; border-collapse: collapse;" class="containerWrapper tbContainer" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <th data-container="true" class="columnContainer" data-container-width="100" style="vertical-align: top; min-width: 5px; width: 580px; height: 0px; padding: 0px;" id="container6f131a0fd15df1744876921662">
+                                                    <table width="100%" cellpadding="0" cellspacing="0" style="height: 100%;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="inner" style="min-width: 5px; padding: 0px; vertical-align: top; word-wrap: break-word; word-break: break-word; background-color: rgba(0, 0, 0, 0); border-color: rgb(0, 50, 71); border-width: 2px; border-style: solid; border-radius: 0px; font-weight: normal;">
+                                                                    <div data-editorblocktype="Text" style="margin: 10px;"><h1>ESA Start-up</h1></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="shorttext667-1745508626933">Company Name</label><input id="shorttext667-1745508626933" type="text" name="dxc_startup_companyname" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false" data-required="required" data-savedfieldid="c08f1c55-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" class="block-label" for="optionset4427-1745502105029">HQ Country</label><select id="optionset4427-1745502105029" name="dxc_investorstartup_hqcountry" title="Field label" required=""><option value="" hidden=""></option><option value="781430000">Austria</option><option value="781430001">Belgium</option><option value="781430002">The Czech Republic</option><option value="781430003">Denmark</option><option value="781430004">Estonia</option><option value="781430005">Finland</option><option value="781430006">France</option><option value="781430007">Germany</option><option value="781430008">Greece</option><option value="781430009">Hungary</option><option value="781430010">Ireland</option><option value="781430011">Italy</option><option value="781430012">Luxembourg</option><option value="781430013">The Netherlands</option><option value="781430014">Norway</option><option value="781430015">Poland</option><option value="781430016">Portugal</option><option value="781430017">Romania</option><option value="781430018">Spain</option><option value="781430019">Sweden</option><option value="781430020">Switzerland</option><option value="781430021">The United Kingdom</option><option value="781430022">Latvia</option><option value="781430023">Lithuania</option><option value="781430024">Slovenia</option><option value="781430025">Other</option></select>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-savedfieldid="93162f5b-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" for="shorttext9607-1745507704030">Other HQ Country</label><input id="shorttext9607-1745507704030" type="text" name="dxc_investorstartup_otherhqcountry" placeholder="" title="Field label" maxlength="256">
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" class="block-label" for="optionset2857-1745509390021">Currently taking part in an ESA programme?</label><select id="optionset2857-1745509390021" name="dxc_startup_currentlytakingpartinanesaprogramme" title="Field label" required=""><option value="" hidden=""></option><option value="1">Yes</option><option value="0">No</option><option value="781430000">Applying</option></select>
+                                                                    </div>
+                                                                    <div class="multiOptionSetFormFieldBlock" data-editorblocktype="MultiOptionSetFormField" data-prefill="false">
+                                                                        <label title="ESA Program" class="block-label" for="multiselect4126-1745594812175">ESA Program</label>
+                                                                        <fieldset id="multiselect4126-1745594812175" name="dxc_startup_esaprogram" title="ESA Program">
+                                                                            <div><input type="checkbox" value="781430000" name="dxc_startup_esaprogram" id="prog-781430000"><label for="prog-781430000">Procurement actions reserved for SME and "Non-Primes" (C1-C4 clauses)</label></div>
+                                                                            <div><input type="checkbox" value="781430001" name="dxc_startup_esaprogram" id="prog-781430001"><label for="prog-781430001">Technology Development Element Programme (TDE)</label></div>
+                                                                            <div><input type="checkbox" value="781430002" name="dxc_startup_esaprogram" id="prog-781430002"><label for="prog-781430002">General Support Technology Programme (GSTP)</label></div>
+                                                                            <div><input type="checkbox" value="781430003" name="dxc_startup_esaprogram" id="prog-781430003"><label for="prog-781430003">Discovery &amp; Preparation</label></div>
+                                                                            <div><input type="checkbox" value="781430004" name="dxc_startup_esaprogram" id="prog-781430004"><label for="prog-781430004">Science Core Technology Programme (CTP)</label></div>
+                                                                            <div><input type="checkbox" value="781430005" name="dxc_startup_esaprogram" id="prog-781430005"><label for="prog-781430005">ARTES 4.0 Programme</label></div>
+                                                                            <div><input type="checkbox" value="781430006" name="dxc_startup_esaprogram" id="prog-781430006"><label for="prog-781430006">ARTES Core Competitiveness (part of ARTES 4.0)</label></div>
+                                                                            <div><input type="checkbox" value="781430007" name="dxc_startup_esaprogram" id="prog-781430007"><label for="prog-781430007">BASS – Business Applications and Space Solutions (part of ARTES 4.0)</label></div>
+                                                                            <div><input type="checkbox" value="781430008" name="dxc_startup_esaprogram" id="prog-781430008"><label for="prog-781430008">Boost! - Commercial Space Transportation Services and Support Programme</label></div>
+                                                                            <div><input type="checkbox" value="781430009" name="dxc_startup_esaprogram" id="prog-781430009"><label for="prog-781430009">Future EO – Earth observation science for society</label></div>
+                                                                            <div><input type="checkbox" value="781430010" name="dxc_startup_esaprogram" id="prog-781430010"><label for="prog-781430010">E3P - Commercial Opportunities in the European Exploration Envelope Programme</label></div>
+                                                                            <div><input type="checkbox" value="781430011" name="dxc_startup_esaprogram" id="prog-781430011"><label for="prog-781430011">InCubed</label></div>
+                                                                            <div><input type="checkbox" value="781430012" name="dxc_startup_esaprogram" id="prog-781430012"><label for="prog-781430012">NAVISP</label></div>
+                                                                            <div><input type="checkbox" value="781430013" name="dxc_startup_esaprogram" id="prog-781430013"><label for="prog-781430013">PRODEX</label></div>
+                                                                            <div><input type="checkbox" value="781430014" name="dxc_startup_esaprogram" id="prog-781430014"><label for="prog-781430014">Permanently Open Calls for New Member States (NMS)</label></div>
+                                                                            <div><input type="checkbox" value="781430015" name="dxc_startup_esaprogram" id="prog-781430015"><label for="prog-781430015">Technology Transfer and Patents</label></div>
+                                                                            <div><input type="checkbox" value="781430016" name="dxc_startup_esaprogram" id="prog-781430016"><label for="prog-781430016">FLPP</label></div>
+                                                                            <div><input type="checkbox" value="781430017" name="dxc_startup_esaprogram" id="prog-781430017"><label for="prog-781430017">Space Safety</label></div>
+                                                                            <div><input type="checkbox" value="781430018" name="dxc_startup_esaprogram" id="prog-781430018"><label for="prog-781430018">Other</label></div>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false">
+                                                                        <label title="Field label" for="shorttext1264-1745932653162">Other ESA Program</label><input id="shorttext1264-1745932653162" type="text" name="dxc_startup_otheresaprogram" placeholder="" title="Field label" maxlength="256">
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" class="block-label" for="optionset4994-1745595179800">ESA BIC Alumni</label><select id="optionset4994-1745595179800" name="dxc_startup_esabicalumni" title="Field label" required=""><option value="" hidden=""></option><option value="1">Yes</option><option value="0">No</option></select>
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" class="block-label" for="optionset2387-1745595252986">Which type of financing is of interest to you?</label><select id="optionset2387-1745595252986" name="dxc_startup_whichtypeoffinancingisofinteresttoyou" title="Field label" required=""><option value="" hidden=""></option><option value="781430000">Equity</option><option value="781430001">Debt</option></select>
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false">
+                                                                        <label title="Current Investment round sought after" class="block-label" for="optionset867-1745508957465">Current Investment round sought after</label><select id="optionset867-1745508957465" name="dxc_startup_currentinvestmentroundsoughtafter" title="Current Investment round sought after"><option value="" hidden=""></option><option value="781430000">Pre seed</option><option value="781430001">Seed round ($500,000 and $2 million)</option><option value="781430002">Serie A ($2 million to $15 million)</option><option value="781430003">Serie B ($10 million to $50 million)</option><option value="781430004">Serie C ($20 million and $100 million)</option></select>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false">
+                                                                        <label title="Field label" for="shorttext5635-1745595562285">Projected IRR (%)</label><input id="shorttext5635-1745595562285" type="number" name="dxc_startup_projectedirr" placeholder="" title="Field label" maxlength="256">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="shorttext4110-1745595640486">Previous Year Revenue (in kEUR)</label><input id="shorttext4110-1745595640486" type="number" name="dxc_startup_previousyearrevenue" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="shorttext7997-1745595722291">Number of employees - FTE (Full Time Equivalent)</label><input id="shorttext7997-1745595722291" type="number" name="dxc_startup_numberofemployees" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="shorttext3607-1745595780565">Future amount to be received from ESA contracts/support (in kEUR)</label><input id="shorttext3607-1745595780565" type="number" name="dxc_startup_futureamount" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="multiOptionSetFormFieldBlock" data-editorblocktype="MultiOptionSetFormField" data-prefill="false" data-required="required" data-savedfieldid="9d162f5b-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" class="block-label" for="multiselect4714-1745502904408">Segment Addressed</label>
+                                                                        <fieldset id="multiselect4714-1745502904408" name="dxc_investorstartup_segmentaddressed" title="Field label">
+                                                                            <div><input type="checkbox" value="781430000" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430000"><label for="multiselect4714-1745502904408-781430000">UPSTREAM - Space hardware</label></div>
+                                                                            <div><input type="checkbox" value="781430001" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430001"><label for="multiselect4714-1745502904408-781430001">UPSTREAM - Satellite constellation integrated vertically launchers</label></div>
+                                                                            <div><input type="checkbox" value="781430002" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430002"><label for="multiselect4714-1745502904408-781430002">DOWNSTREAM - Communication</label></div>
+                                                                            <div><input type="checkbox" value="781430003" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430003"><label for="multiselect4714-1745502904408-781430003">DOWNSTREAM - Climate</label></div>
+                                                                            <div><input type="checkbox" value="781430004" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430004"><label for="multiselect4714-1745502904408-781430004">DOWNSTREAM - Logistics</label></div>
+                                                                            <div><input type="checkbox" value="781430005" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430005"><label for="multiselect4714-1745502904408-781430005">DOWNSTREAM - Location and mapping</label></div>
+                                                                            <div><input type="checkbox" value="781430006" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430006"><label for="multiselect4714-1745502904408-781430006">DOWNSTREAM - Insurance</label></div>
+                                                                            <div><input type="checkbox" value="781430007" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430007"><label for="multiselect4714-1745502904408-781430007">DOWNSTREAM - Others</label></div>
+                                                                            <div><input type="checkbox" value="781430008" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430008"><label for="multiselect4714-1745502904408-781430008">MIDSTREAM - Ground systems &amp; antennas</label></div>
+                                                                            <div><input type="checkbox" value="781430009" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430009"><label for="multiselect4714-1745502904408-781430009">MIDSTREAM - Space linked software</label></div>
+                                                                            <div><input type="checkbox" value="781430010" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430010"><label for="multiselect4714-1745502904408-781430010">IN SPACE ECONOMY - Space services</label></div>
+                                                                            <div><input type="checkbox" value="781430011" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430011"><label for="multiselect4714-1745502904408-781430011">IN SPACE ECONOMY - Space infrastructure</label></div>
+                                                                            <div><input type="checkbox" value="781430012" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430012"><label for="multiselect4714-1745502904408-781430012">IN SPACE ECONOMY - Space R&amp;D manufacturing</label></div>
+                                                                            <div><input type="checkbox" value="781430013" name="dxc_investorstartup_segmentaddressed" id="multiselect4714-1745502904408-781430013"><label for="multiselect4714-1745502904408-781430013">IN SPACE ECONOMY - Exploration and utilisation</label></div>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-hide="hide" data-savedfieldid="948c3a61-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" for="shorttext8808-1745503109072">Other Segment Addressed</label><input id="shorttext8808-1745503109072" type="text" name="dxc_investorstartup_othersegmentaddressed" placeholder="" title="Field label" maxlength="256">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="shorttext8060-1745595861767">Desired funding amount (in kEUR)</label><input id="shorttext8060-1745595861767" type="number" name="dxc_startup_desiredfundingamount" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" class="block-label" for="optionset974-1745595952080">Have members of the ESA Investor Network invested in your company in the past?</label>
+                                                                        <p><a href="https://commercialisation.esa.int/investor-network/" target="_blank">ESA INVESTOR NETWORK - ESA Commercialisation Gateway</a></p>
+                                                                        <select id="optionset974-1745595952080" name="dxc_startup_havemembersinvestedinthepast" title="Field label" required=""><option value="" hidden=""></option><option value="1">Yes</option><option value="0">No</option></select>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false"><label title="Field label" for="shorttext3873-1774538440050">Investor Network 1</label><input id="shorttext3873-1774538440050" type="text" name="shorttext3873" placeholder="" title="Field label" maxlength="256" value=""></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false"><label title="Field label" for="shorttext2736-1774538489268">Investor Network 2</label><input id="shorttext2736-1774538489268" type="text" name="shorttext2736" placeholder="" title="Field label" maxlength="256"></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false"><label title="Field label" for="shorttext1405-1774538533760">Investor Network 3</label><input id="shorttext1405-1774538533760" type="text" name="shorttext1405" placeholder="Field label" title="Field label" maxlength="256"></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false"><label title="Field label" for="shorttext978-1774538560119">Investor Network 4</label><input id="shorttext978-1774538560119" type="text" name="shorttext978" placeholder="" title="Field label" maxlength="256"></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false"><label title="Field label" for="shorttext4587-1774538584292">Investor Network 5</label><input id="shorttext4587-1774538584292" type="text" name="shorttext4587" placeholder="" title="Field label" maxlength="256"></div>
+                                                                    <div data-editorblocktype="Divider" style="margin: 20px 10px;">
+                                                                        <div class="dividerWrapper" align="center">
+                                                                            <table style="padding: 0px; margin: 0px; width: 100%; border-collapse: collapse;" role="presentation" cellpadding="0" cellspacing="0">
+                                                                                <tbody><tr style="padding: 0px;"><th style="margin:0px; padding: 0px; vertical-align:top;border-top-width: 2px; border-top-style: solid; border-top-color: #e1dfdd;"><p style="margin: 0px; padding: 0px; line-height: 0px; width: 100%;"><span><!--[if gte mso 9]><br/><![endif]-->&nbsp;</span></p></th></tr></tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextAreaFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="longtext2855-1745597802589">Blurb : short paragraph explaining what your companies does and its financing needs</label><textarea id="longtext2855-1745597802589" name="dxc_startup_blurb" placeholder="" title="Field label" cols="20" rows="5" maxlength="2000" required="required"></textarea>
+                                                                    </div>
+                                                                    <div class="optionSetFormFieldBlock" data-editorblocktype="OptionSetFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" class="block-label" for="optionset2281-1745597844048">Interested in the Scale-up Invest programme?</label>
+                                                                        <p><a href="https://commercialisation.esa.int/marketplace/" target="_blank">ScaleUp INVEST Marketplace - ESA Commercialisation Gateway</a>&nbsp;</p>
+                                                                        <select id="optionset2281-1745597844048" name="dxc_startup_interestedinthescaleupinvestprogramme" title="Field label" required=""><option value="" hidden=""></option><option value="1">Yes</option><option value="0">No</option><option value="781430000">Can I know more about</option></select>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required" data-savedfieldid="a08c3a61-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" for="shorttext1917-1745503158720">Point of Contact: Name</label><input id="shorttext1917-1745503158720" type="text" name="dxc_investorstartup_pointofcontactname" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="firstname" data-prefill="false"><label title="First Name" for="firstname-1776179434480">First Name</label><input id="firstname-1776179434480" type="text" name="firstname" placeholder="First Name" title="First Name" maxlength="58"></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-targetaudience="contact" data-targetproperty="emailaddress1" data-required="required" data-prefill="false"><label title="Email" for="emailaddress1-1776179460738">Email</label><input id="emailaddress1-1776179460738" type="email" name="emailaddress1" placeholder="Email" title="Email" pattern="[^@\s\\&quot;&lt;&gt;\)\(\[\]:;,.]+(([.]{1}[^@\s\\&quot;&lt;&gt;\)\(\[\]:;,.]+)+?|)@([^@\s\\&quot;&lt;&gt;\)\(\[\]\+:;,\.\-]+(((\.|\+|-|--)[^@\s\\&quot;&lt;&gt;\)\(\[\]+:;,.\-]+)+?|)([.][^0-9@\s\\&quot;&lt;&gt;\)\(\[\]+:;,.\-]+)+?)" required=""></div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required" data-savedfieldid="eb8c3a61-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" for="shorttext1455-1745503184627">Point of Contact: Surname</label><input id="shorttext1455-1745503184627" type="text" name="dxc_investorstartup_pointofcontactsurname" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required" data-savedfieldid="02d75167-2221-f011-998a-000d3adf0f08">
+                                                                        <label title="Field label" for="shorttext5833-1745503188939">Point of Contact: Email Address</label><input id="shorttext5833-1745503188939" type="text" name="dxc_investorstartup_pointofcontactemail" placeholder="Example: &quot;test@example.com&quot;" title="Field label" maxlength="256" value="" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required="required">
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required">
+                                                                        <label title="Field label" for="shorttext7969-1745598095359"><span style="display: inline !important;">Point of Contact: Company Role</span></label><input id="shorttext7969-1745598095359" type="text" name="dxc_investorstartup_pointofcontactcompanyrole" placeholder="" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div data-editorblocktype="Divider" style="margin: 20px 10px;">
+                                                                        <div class="dividerWrapper" align="center">
+                                                                            <table style="padding: 0px; margin: 0px; width: 100%; border-collapse: collapse;" role="presentation" cellpadding="0" cellspacing="0">
+                                                                                <tbody><tr style="padding: 0px;"><th style="margin:0px; padding: 0px; vertical-align:top;border-top-width: 2px; border-top-style: solid; border-top-color: #e1dfdd;"><p style="margin: 0px; padding: 0px; line-height: 0px; width: 100%;"><span><!--[if gte mso 9]><br/><![endif]-->&nbsp;</span></p></th></tr></tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-editorblocktype="Text" style="margin: 10px;">
+                                                                        <p><span style="font-family:&quot;Times New Roman&quot;; font-size:12px; background-color:rgb(255, 255, 255); font-style:italic; font-weight:bold"><span dir="ltr">"Please provide the complete URL of the document you wish to attach. Ensure that the URL is valid and accessible to our team."<br><br>"Maximum File Size : 131 MB"</span></span></p>
+                                                                    </div>
+                                                                    <div class="textFormFieldBlock" data-editorblocktype="TextFormField" data-prefill="false" data-required="required" data-savedfieldid="f0e3d883-f121-f011-9989-002248a2daef">
+                                                                        <label title="Field label" for="shorttext9982-1745503819251">Investor deck</label><input id="shorttext9982-1745503819251" type="text" name="dxc_startup_investordeck" placeholder="Example : &quot;https://example.com/document.pdf&quot;" title="Field label" maxlength="256" required="required">
+                                                                    </div>
+                                                                    <div data-editorblocktype="SubmitButton" class="submitButtonWrapper"><button class="submitButton" type="submit" aria-label="Submit" style="background-color: rgb(0, 50, 71);"><span>Submit</span></button></div>
+                                                                </th>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div data-section="true" class="emptyContainer columns-equal-class wrap-section" style="margin: 0px; border-radius: 0px;">
+                    <table class="outer" align="center" cellpadding="0" cellspacing="0" style="width: 600px; display: block;">
+                        <tbody>
+                            <tr>
+                                <th style="padding: 0px 10px; border-color: rgb(0, 0, 0); border-width: 0px; border-style: none; border-radius: 0px;">
+                                    <table style="width: 100%; border-collapse: collapse;" class="containerWrapper tbContainer" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <th data-container="true" class="columnContainer" data-container-width="100" style="vertical-align: top; min-width: 5px; width: 580px; height: 0px; padding: 0px;" id="containerc1f7b301ba2ca81744876938389">
+                                                    <table width="100%" cellpadding="0" cellspacing="0" style="height: 100%;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="inner" style="min-width: 5px; padding: 0px; vertical-align: top; word-wrap: break-word; word-break: break-word; background-color: rgba(0, 0, 0, 0); border-color: rgb(0, 0, 0) rgb(0, 50, 71) rgb(0, 50, 71); border-width: 2px; border-style: none solid solid; border-radius: 0px; font-weight: normal;">
+                                                                    <div data-editorblocktype="Image" style="margin: 10px;">
+                                                                        <div align="Center" class="imageWrapper" data-image-file-id="3b47b7dd-795c-ee11-be6e-000d3addca62">
+                                                                            <img src="https://assets-eur.mkt.dynamics.com/846bcca8-9413-4d04-822b-7282239af232/digitalassets/images/3b47b7dd-795c-ee11-be6e-000d3addca62?ts=638313357006263650" style="max-height: 100%; max-width: 100%; box-sizing: border-box; display: block;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div data-editorblocktype="Text" style="margin: 10px;">
+                                                                        <p style="text-align: center;"><span style="color: rgb(128, 128, 128); font-size: 11px; text-align: center;">ESA applies appropriate organizational measures to protect personal data, in case of data privacy queries, please contact the ESA Data Protection Officer (dpo@esa.int).</span></p>
+                                                                    </div>
+                                                                </th>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- ===== BOT LAUNCHER + IFRAME ===== -->
+    <button class="botLauncher" title="Chat with Copilot" onclick="var f=document.getElementById('botChatFrame'); f.style.display=f.style.display==='block'?'none':'block';">🤖</button>
+    <iframe id="botChatFrame" class="botIframe" src="https://copilotstudio.microsoft.com/environments/0e65fbbb-7553-4a35-970e-0c65b99136d5/bots/copilots_dectree_f3a92/webchat?__version__=2" frameborder="0" title="Chat with Copilot"></iframe>
+
+    <!-- ===== ESA START-UP FORM SCRIPT ===== -->
+    <script>
+        document.addEventListener('d365mkt-afterformload', function () {
+    // === 1. HQ Country Logic ===
+    const dropdownHqCountry = document.getElementById("optionset4427-1745502105029");
+    const otherCountryBlock = document.querySelector('[data-savedfieldid="93162f5b-2221-f011-998a-000d3adf0f08"]');
+    const otherCountryInput = document.getElementById("shorttext9607-1745507704030");
+    const otherCountryLabel = document.querySelector('label[for="shorttext9607-1745507704030"]');
+
+    function handleHQCountryField() {
+        const isOtherSelected = dropdownHqCountry?.value === "781430025";
+        if (isOtherSelected) {
+            otherCountryBlock.style.display = "block";
+            otherCountryLabel.innerHTML = 'Other HQ Country<span class="lp-required" style="color: red;"> *</span>';
+            otherCountryInput.required = true;
+        } else {
+            otherCountryBlock.style.display = "none";
+            otherCountryLabel.innerHTML = 'Other HQ Country';
+            otherCountryInput.required = false;
+            otherCountryInput.value = '';
+        }
+    }
+
+    // === 2. Segment Addressed Logic ===
+    const otherCheckbox = document.getElementById("multiselect4714-1745502904408-781430007");
+    const otherSegmentBlock = document.querySelector('[data-savedfieldid="948c3a61-2221-f011-998a-000d3adf0f08"]');
+    const otherSegmentInput = document.getElementById('shorttext8808-1745503109072');
+    const otherSegmentLabel = document.querySelector('label[for="shorttext8808-1745503109072"]');
+
+    function handleSpaceSegmentAddressesChange() {
+        if (otherCheckbox?.checked) {
+            otherSegmentBlock.style.display = 'block';
+            otherSegmentLabel.innerHTML = 'Other Segment Addressed<span class="lp-required" style="color: red;"> *</span>';
+            otherSegmentInput.required = true;
+        } else {
+            otherSegmentBlock.style.display = 'none';
+            otherSegmentInput.required = false;
+            otherSegmentInput.value = '';
+        }
+    }
+
+    // === 3. ESA Program Visibility Logic ===
+    const esaStatusDropdown = document.getElementById("optionset2857-1745509390021");
+    const esaProgramLabel = document.querySelector('label[for="multiselect4126-1745594812175"]');
+    const esaProgramBlock = document.getElementById("multiselect4126-1745594812175")?.parentElement;
+    const esaProgramCheckboxes = esaProgramBlock?.querySelectorAll('input[type="checkbox"]');
+
+    // === 4. Other ESA Program Logic ===
+    const otherEsaCheckbox = document.getElementById("prog-781430018");
+    const otherEsaInput = document.getElementById("shorttext1264-1745932653162");
+    const otherEsaBlock = otherEsaInput?.parentElement;
+    const otherEsaLabel = document.querySelector('label[for="shorttext1264-1745932653162"]');
+
+    function validateEsaProgramCheckboxes() {
+        const isAnyChecked = Array.from(esaProgramCheckboxes).some(cb => cb.checked);
+        esaProgramCheckboxes.forEach(cb => cb.required = !isAnyChecked);
+    }
+
+    function handleEsaProgramVisibility() {
+        const isYes = esaStatusDropdown?.value === "1";
+        if (isYes) {
+            esaProgramLabel.innerHTML = 'ESA Program<span class="lp-required" style="color: red;"> *</span>';
+            esaProgramLabel.style.display = 'block';
+            esaProgramBlock.style.display = 'block';
+            validateEsaProgramCheckboxes();
+            handleOtherEsaProgramChange();
+        } else {
+            esaProgramLabel.style.display = 'none';
+            esaProgramBlock.style.display = 'none';
+            esaProgramCheckboxes?.forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.required = false;
+            });
+            otherEsaBlock.style.display = 'none';
+            otherEsaLabel.innerHTML = 'Other ESA Program';
+            otherEsaInput.required = false;
+            otherEsaInput.value = '';
+        }
+    }
+
+    function handleOtherEsaProgramChange() {
+        const isEsaStatusYes = esaStatusDropdown?.value === "1";
+        const isOtherChecked = otherEsaCheckbox?.checked;
+        if (isEsaStatusYes && isOtherChecked) {
+            otherEsaBlock.style.display = 'block';
+            otherEsaLabel.innerHTML = 'Other ESA Program<span class="lp-required" style="color: red;"> *</span>';
+            otherEsaInput.required = true;
+        } else {
+            otherEsaBlock.style.display = 'none';
+            otherEsaLabel.innerHTML = 'Other ESA Program';
+            otherEsaInput.required = false;
+            otherEsaInput.value = '';
+        }
+    }
+
+    // === 5. Financing Type Logic ===
+    const financingTypeSelect = document.getElementById("optionset2387-1745595252986");
+    const investmentRoundSelect = document.getElementById("optionset867-1745508957465");
+    const investmentRoundBlock = investmentRoundSelect.parentElement;
+    const investmentRoundLabel = document.querySelector('label[for="optionset867-1745508957465"]');
+    const irrInput = document.getElementById("shorttext5635-1745595562285");
+    const irrFieldBlock = irrInput.parentElement;
+    const irrLabel = document.querySelector('label[for="shorttext5635-1745595562285"]');
+
+    function handleFinancingTypeChange() {
+        const isEquity = financingTypeSelect?.value === "781430000";
+        if (isEquity) {
+            investmentRoundBlock.style.display = "block";
+            irrFieldBlock.style.display = "block";
+            investmentRoundLabel.innerHTML = 'Current Investment round sought after<span class="lp-required" style="color: red;"> *</span>';
+            irrLabel.innerHTML = 'Projected IRR (%)<span class="lp-required" style="color: red;"> *</span>';
+            investmentRoundSelect.required = true;
+            irrInput.required = true;
+        } else {
+            investmentRoundBlock.style.display = "none";
+            irrFieldBlock.style.display = "none";
+            investmentRoundLabel.innerHTML = 'Current Investment round sought after';
+            irrLabel.innerHTML = 'Projected IRR (%)';
+            investmentRoundSelect.required = false;
+            irrInput.required = false;
+            investmentRoundSelect.value = "";
+            irrInput.value = "";
+        }
+    }
+
+    // === 6. Investor Network Logic ===
+    const investorDropdown = document.getElementById("optionset974-1745595952080");
+    const investorFields = [
+        document.getElementById("61454ac4-c20d-46be-bd48-3beecbd009f6"),
+        document.getElementById("ea7ce477-4055-4dce-95b4-185afdacc8e3"),
+        document.getElementById("4d0faa88-6c6d-44e2-a3bb-828e8346df88"),
+        document.getElementById("0cac7800-1c28-4729-be5e-4843d90a8d20"),
+        document.getElementById("6631a0a7-e056-490d-984a-ced459c64206")
+    ];
+    const investorBlocks = investorFields.map(input => input?.closest(".lookupFormFieldBlock"));
+    const investorLabels = investorFields.map((input, i) =>
+        document.querySelector(`label[for="${input?.id}"]`)
+    );
+
+    function handleInvestorFields() {
+        const isYes = investorDropdown?.value === "1";
+        investorFields.forEach((input, index) => {
+            const block = investorBlocks[index];
+            const label = investorLabels[index];
+            if (block) block.style.display = "none";
+            if (label) label.innerHTML = `Investor Network ${index + 1}`;
+            if (input) { input.required = false; input.value = ""; }
+        });
+        if (!isYes) return;
+        investorFields.forEach((input, i) => {
+            const block = investorBlocks[i];
+            const label = investorLabels[i];
+            if (block) block.style.display = "block";
+            if (label) label.innerHTML = `Investor Network ${i + 1}`;
+            if (input) {
+                if (i === 0) {
+                    if (label) label.innerHTML += '<span class="lp-required" style="color: red;"> *</span>';
+                    input.required = true;
+                } else {
+                    input.required = false;
+                }
+            }
+        });
+    }
+
+    // === Attach Event Listeners ===
+    dropdownHqCountry?.addEventListener("change", handleHQCountryField);
+    otherCheckbox?.addEventListener("change", handleSpaceSegmentAddressesChange);
+    esaStatusDropdown?.addEventListener("change", handleEsaProgramVisibility);
+    otherEsaCheckbox?.addEventListener("change", handleOtherEsaProgramChange);
+    financingTypeSelect?.addEventListener("change", handleFinancingTypeChange);
+    investorDropdown?.addEventListener("change", handleInvestorFields);
+    esaProgramCheckboxes?.forEach(cb => cb.addEventListener('change', validateEsaProgramCheckboxes));
+
+    // === Initial Execution ===
+    handleHQCountryField();
+    handleSpaceSegmentAddressesChange();
+    handleEsaProgramVisibility();
+    handleOtherEsaProgramChange();
+    handleFinancingTypeChange();
+    handleInvestorFields();
+});
+    </script>
+
+</body></html>
